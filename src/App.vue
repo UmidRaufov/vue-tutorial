@@ -1,6 +1,6 @@
 <template>
   <div>
-    <comment-form />
+    <comment-form  @addComment="createComment"/>
     <comment-list v-bind:comments="comments" />
   </div>
 </template>
@@ -25,12 +25,9 @@ export default {
     }
   },
   methods: {
-    increment() {
-      this.count += 1
-    },
-    decrement() {
-      this.count -= 1
-    },
+    createComment(comment) {
+      this.comments.push(comment);
+    }
   }
 }
 </script>

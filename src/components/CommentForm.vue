@@ -33,6 +33,17 @@ export default {
         content: ''
       }
     }
+  },
+  methods: {
+    createComment() {
+      this.comment.id = Date.now();
+      this.$emit('addComment', this.comment);
+      this.comment = {
+        name: '',
+        email: '',
+        content: ''
+      }
+    }
   }
 }
 </script>
