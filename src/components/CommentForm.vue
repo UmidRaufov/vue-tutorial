@@ -3,20 +3,20 @@
     <div class="w-75 mx-auto">
       <h3>Add Comments</h3>
       <form @submit.prevent>
-        <input
+        <my-input
             v-model="comment.name"
             placeholder="Enter Your Name..."
             class="form-control"/>
-        <input
+        <my-input
             v-model="comment.email"
             placeholder="Enter Your Email..."
             class="form-control my-3"/>
-        <input
+        <my-input
             v-model="comment.content"
             placeholder="Enter Your Content..."
             class="form-control"/>
         <div class="d-flex flex-row-reverse">
-          <button @click="createComment" class="btn btn-primary mt-3">Add Comment</button>
+          <my-button @click="createComment" class="btn btn-primary mt-3">Add Comment</my-button>
         </div>
       </form>
     </div>
@@ -24,7 +24,9 @@
 </template>
 
 <script>
+import MyButton from "@/components/UI/MyButton";
 export default {
+  components: {MyButton},
   data() {
     return {
       comment: {
