@@ -1,11 +1,16 @@
 <template>
-  <div>
+  <div v-if="comments.length > 0">
+    <h3 class="text-center text-primary">Comments</h3>
     <comment-item
         class="w-75 mx-auto comment"
         v-for="comment in comments"
         v-bind:key="comment.id"
         :comment="comment"
+        @remove="$emit('remove', comment)"
     />
+  </div>
+  <div v-else>
+    <h3 class="text-center text-danger">No comments yet</h3>
   </div>
 </template>
 

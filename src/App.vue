@@ -1,30 +1,43 @@
 <template>
+  <navbar class="container" :showModal="showModal"/>
   <div>
-    <comment-form  @addComment="createComment"/>
-    <comment-list v-bind:comments="comments" />
+    <my-modal v-model:show="modalVisible">
+    <comment-form @addComment="createComment"/>
+    </my-modal>
+    <comment-list v-bind:comments="comments" @remove="removeComment"/>
   </div>
 </template>
 
 <script>
-import CommentForm  from './components/CommentForm';
-import CommentList  from './components/CommentList';
+import CommentForm from './components/CommentForm';
+import CommentList from './components/CommentList';
+import Navbar from './components/FirstNavbar';
+import MyModal from "@/components/MyModal";
 
 export default {
   components: {
+    MyModal,
     CommentForm,
     CommentList,
+    Navbar,
   },
   data() {
     return {
-      comments: [
-        {id: 1, name: "Jon  Smit", email: "1mail", content: "Lorem1"},
-      ]
+      comments: [],
+      modalVisible: false,
     }
   },
   methods: {
     createComment(comment) {
       this.comments.push(comment);
-    }
+      this.modalVisible = false;
+    },
+    removeComment(comment) {
+      this.comments.splice(this.comments.indexOf(comment), 1);
+    },
+    showModal(){
+      this.modalVisible = true;
+    },
   }
 }
 </script>

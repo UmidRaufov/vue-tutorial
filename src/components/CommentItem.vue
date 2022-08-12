@@ -5,7 +5,7 @@
       <p><b>Content: </b>{{comment.content}}</p>
     </div>
     <div>
-      <button class="btn btn-danger">Delete</button>
+      <button class="btn btn-danger" @click="$emit('remove', commit)">Delete</button>
     </div>
   </div>
 </template>
