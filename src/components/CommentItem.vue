@@ -2,7 +2,7 @@
   <div class="comment">
     <div>
       <p>{{comment.name}} <b>{{comment.email}}</b></p>
-      <p><b>Content: </b>{{comment.content}}</p>
+      <p><b>Content: </b>{{comment.body}}</p>
     </div>
     <div>
       <button class="btn btn-danger" @click="$emit('remove', commit)">Delete</button>

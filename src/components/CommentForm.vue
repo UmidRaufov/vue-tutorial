@@ -12,7 +12,7 @@
             placeholder="Enter Your Email..."
             class="form-control my-3"/>
         <my-input
-            v-model="comment.content"
+            v-model="comment.body"
             placeholder="Enter Your Content..."
             class="form-control"/>
         <div class="d-flex flex-row-reverse">
@@ -32,7 +32,7 @@ export default {
       comment: {
         name: '',
         email: '',
-        content: ''
+        body: ''
       }
     }
   },
@@ -43,7 +43,7 @@ export default {
       this.comment = {
         name: '',
         email: '',
-        content: ''
+        body: ''
       }
     }
   }
